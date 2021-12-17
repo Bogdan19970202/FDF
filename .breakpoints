@@ -1,0 +1,12 @@
+{
+  "files": {
+    "mandatory/file.txt": [
+      {
+        "id": "9aff997d-3904-4b9e-8c14-6f023bb20c70",
+        "line": 1,
+        "version": 4,
+        "index": 0
+      }
+    ]
+  }
+}
