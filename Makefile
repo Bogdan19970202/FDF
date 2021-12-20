@@ -14,7 +14,7 @@ NAME = fdf
 
 NAME_B = fdf_bonus
 
-SRCS	=	./mandatory/main.c ./mandatory/ft_atoi.c ./mandatory/ft_strlen.c ./mandatory/ft_split.c ./mandatory/ft_memmove.c ./GNL-main/get_next_line_utils.c ./GNL-main/get_next_line.c ./GNL-main/get_next_line.h#./mandatory/ft_check.c	./mandatory/ft_hook.c	./mandatory/ft_move.c\
+SRCS	=	./mandatory/main.c ./mandatory/ft_strchr.c ./mandatory/ft_atoi.c ./mandatory/ft_strlen.c ./mandatory/ft_split.c ./mandatory/ft_memmove.c ./GNL-main/get_next_line_utils.c ./GNL-main/get_next_line.c ./GNL-main/get_next_line.h#./mandatory/ft_check.c	./mandatory/ft_hook.c	./mandatory/ft_move.c\
 			./mandatory/main.c	./mandatory/massiv.c	./mandatory/render.c\
 			./mandatory/split.c	./mandatory/steps.c \
 

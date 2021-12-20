@@ -1,7 +1,46 @@
 
 #include "../mandatory/fdf.h"
 # include <stdio.h>
+void ft_centr(double min_x, double max_x, double min_z, double max_z, double height, double width, t_pix ***arr_fin)
+{
+  double k, z_av, x_av;
+  int i,j;
 
+  i = 0;
+  z_av = (max_z - min_z) / 2 + min_z;
+  x_av = (max_x - min_x) / 2 + min_x;
+  
+  if ((max_x - min_x > width) || (max_z - min_z > height))
+  {
+    
+    if ((max_x - min_x) / width > (max_z - min_z) / height)
+    {
+      printf("%f s", z_av );
+      k = (max_x - min_x) / width; 
+    }
+    else
+    {
+      k = (max_z - min_z) / height;
+    }  
+    
+    // printf("%s", arr_fin[0]);
+    while (arr_fin[i] != NULL)
+    {
+      j = 0;
+      // printf("%f salsam", k );
+      while (arr_fin[i][j] != NULL)
+      {
+        arr_fin[i][j]->x = (arr_fin[i][j]->x - x_av) / k;
+        arr_fin[i][j]->y = arr_fin[i][j]->y / k;
+        arr_fin[i][j]->z = (arr_fin[i][j]->z - z_av) / k;
+        printf("%f\n", arr_fin[i][j]->z);
+        j++;
+      }
+      
+      i++;
+    }
+  }
+}
 void* ft_realloc(void* p, size_t new_size, size_t old_size)
 {
   void* tmp;
@@ -79,23 +118,28 @@ int main(void)
         break ;
       arr[i]->x = i;
       arr[i]->y = counter;
-      arr[i]->end = 0;
-      arr[i]->z = *(ft_split(z[i], ',')[0]);
-      // if ((ft_split(z[i], ',')[1]) != NULL)
+      arr[i]->z =  ft_atoi((ft_split(z[i], ',')[0]));
+      // printf("%s\n",ft_split(z[i], ',')[1]);
+      // if (ft_strchr(z[i], ',') != NULL)
       //   arr[i]->color = *(ft_split(z[i], ',')[0]);
-      printf("%d\n", arr[i]->z);
+      // else
+      //   arr[i]->color = 0xFFFFFF;
+      // printf("%d\n",arr[i]->z);
       i++;
       
     }
-    // arr[i - 1]->end = 1;
-    // arr_fin[counter] = arr; 
+    arr[i] = NULL;
+
+    arr_fin[counter] = arr; 
 
 
     counter ++;
     // printf("%d", counter );
   }
+  arr_fin[counter] = NULL;
   // // printf("%d", j );
   // printf("%s", (char *)arr_fin[len] );
-  
+  ft_centr(0, 9, 0,20, 5, 100, arr_fin);
+  // printf("%d", j );
   return 0;
 }
